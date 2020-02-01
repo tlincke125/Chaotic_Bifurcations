@@ -108,6 +108,7 @@ def feigenbaum(rmin, rmax, iterates, x0, mapping: Map, cut_off=0, dr=0.01, niter
             xarr[j] = x
 
         std_temp = np.std(xarr[0::niterates])
+        print(std_temp)
 
         stds[i] = std_temp - std_prev
 
@@ -146,8 +147,8 @@ if __name__ == '__main__':
     x0 = 0.5
     cut_off = 500
     iterates = 600
-    dr = 0.0001
-    mapping = henon
+    dr = 0.000001
+    mapping = log
 
     #  max_r = 3.57
     #  min_r = 2.8
@@ -157,12 +158,13 @@ if __name__ == '__main__':
     #  dr = 0.0001
     #  mapping = log
 
-    feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=1)
-    feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=2)
-    feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=4)
-    feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=8)
+    feigenbaum(rmin=2.9994, rmax=3.0006, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=1)
+    #  feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=2)
+    #  feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=4)
+    #  feigenbaum(rmin=min_r, rmax=max_r, x0=x0, cut_off=cut_off, iterates=iterates, dr=dr, mapping = mapping, niterates=8)
 
-    plt.xticks( np.arange(min_r, max_r, 0.0001) )
+    print("here")
+    #  plt.xticks( np.arange(min_r, max_r, dr) )
 
 
     plt.xlabel('R Value')
